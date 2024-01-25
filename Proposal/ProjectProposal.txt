@@ -1,0 +1,24 @@
+Names: Makayla Sherman-Schatz (FE), Trey Vickery (BE), Joseph Tomlin (FE), Claude Moore (FE/BE)
+Stack: MERN
+Github Repo Link: https://github.com/CloudedEevee/PokeShelter
+Project Name: PokeShelter
+Project Description: Search for a Pokemon from the Pokemon API, add to list of "Adopted" Pokemon. MERN app using Vite.
+MVP Features: 
+	- Search Bar (connect to Pokemon API)
+	- Results list (from Pokemon API) with image and Pokedex Name
+		- Nickname Pokemon from results
+			- required
+			- must be at least 2 characters
+		- Add Nicknamed Pokemon to Adopted list via submit button (Create)
+	- Display Adopted Pokemon in a list on the page (Read)
+		- Update Nickname (Update)
+		- Remove Pokemon from Adopted list (Destroy)
+Bonus Features:
+	- Application features a third-party API
+	- Bootstrap/Material-UI (Stretch Goal)
+Models: 
+	- Adoptions
+		- Nickname (Displayed in list) (Can be updated, user input)
+		- Pokemon Name (cannot be updated, API)
+		- Pokedex # (cannot be updated, API)
+		- Pokedex Entry (flavor text / description) (cannot be updated, API)
