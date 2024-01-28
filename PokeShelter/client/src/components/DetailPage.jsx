@@ -1,6 +1,6 @@
 import React from 'react';
-import Icon from '../icon';
-import Btn from '../btn';
+// import Icon from '../icon';
+// import Btn from '../btn';
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import axios from 'axios'
@@ -36,4 +36,4 @@ const DetailPage = (props) => {
     )
 }
 
-export default DetailPage
+export default DetailPage;

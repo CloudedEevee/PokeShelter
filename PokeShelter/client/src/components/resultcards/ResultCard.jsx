@@ -1,6 +1,7 @@
 import React from "react";
 import Icon from "../icon";
 import Quicklook from "./quicklook";
+import PokeballIcon from "../PokeballIcon";
 
 const ResultCard = (props) => {
 
@@ -8,8 +9,12 @@ const ResultCard = (props) => {
     //////////////////////////////////////////////////////////// Return
     return (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", margin: "1rem" }}>
-            <Icon />
-            <Quicklook />
+            <div style={{ display: "flex", flexDirection: "row", margin: ".5rem" }}>
+                <PokeballIcon />
+                <Quicklook />
+            </div>
+            <button style={{ padding: ".1rem 2rem", textAlign: "center", backgroundColor:"brown", boxShadow: "4px 4px black" }}>Add to Party</button>
+            
         </div>
     )
 
