@@ -4,7 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './components/Main';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [pokemonCard, setPokemonCard] = useState([])
 
 
   return (
@@ -14,6 +15,7 @@ function App() {
           <Routes>
 
             <Route element={<Main />} path="/" default />
+            <Route element={<DetailPage />} path="/" />
 
           </Routes>
         </BrowserRouter>
