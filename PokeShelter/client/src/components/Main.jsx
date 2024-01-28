@@ -6,7 +6,7 @@ const Main = (props) => {
 
     //////////////////////////////////////////////////////////// Return
     return (
-        <div style={{ display: "flex" }}>
+        <div style={{ display: "flex", flexDirection: "column"}}>
             <Nav />
             <Search />
             <ResultCard />

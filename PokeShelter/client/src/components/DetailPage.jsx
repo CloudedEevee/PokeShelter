@@ -24,7 +24,7 @@ const DetailPage = (props) => {
     }, [])
 
     return (
-        <div style={{display: "flex", flexDirection: "column", alignItems: "center", margin: "3rem"}}>
+        <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
             <Icon/>
             <img style={{margin: "1rem"}} id="pokemon" src={card.sprite} alt="{card.name} sprite" />
             <h3 style={{margin: "1rem"}}>{onePokemon.nickname}</h3>
