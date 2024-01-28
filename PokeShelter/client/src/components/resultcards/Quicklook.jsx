@@ -1,14 +1,14 @@
 import React from "react";
+import InputField from "./InputField";
 
 const Quicklook = (props) => {
 
 
     //////////////////////////////////////////////////////////// Return
     return (
-        <div>
-            <p style={{ margin: ".2rem" }}>Pokename</p>
-            <p style={{ margin: ".2rem" }}>Set Nickname</p>
-            <button style={{ padding: ".3rem .5rem", textAlign: "center", backgroundColor:"brown", boxShadow: "4px 4px black"}}>Add to Party</button>
+        <div style={{ paddingLeft: "1rem" }}>
+            <p style={{ margin: ".2rem", fontSize: "20pt" }}>Pokename</p>
+            <InputField />
         </div>
     )
 }

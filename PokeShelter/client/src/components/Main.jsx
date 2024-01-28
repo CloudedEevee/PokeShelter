@@ -1,16 +1,16 @@
 import React from "react";
 import ResultCard from "./resultcards/resultcard";
+import Nav from "./Nav";
+import Search from "./Search";
 
 const Main = (props) => {
 
 
     //////////////////////////////////////////////////////////// Return
     return (
-        <div style={{ display: "flex", flexDirection: "column"}}>
+        <div style={{ display: "flex", flexDirection: "column", flexDirection: "column"}}>
             <Nav />
             <Search />
-            <ResultCard />
-            <ResultCard />
             <ResultCard />
         </div>
 
@@ -20,3 +20,6 @@ const Main = (props) => {
 
 
 export default Main;
+
+
+// remove flexDirection
