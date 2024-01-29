@@ -1,7 +1,7 @@
 import React from "react";
-import Icon from "../icon";
+import Icon from "../general/Icon";
 import Quicklook from "./quicklook";
-import PokeballIcon from "../PokeballIcon";
+import PokeballIcon from "../general/PokeballIcon";
 
 const ResultCard = (props) => {
 
