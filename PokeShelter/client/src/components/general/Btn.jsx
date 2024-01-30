@@ -7,7 +7,7 @@ const Btn = (props) => {
 
     return (
         <button 
-            onSubmit={onSubProp}
+            onClick={(e) => onSubProp}
             >{btnAction}</button>
     )
 }
