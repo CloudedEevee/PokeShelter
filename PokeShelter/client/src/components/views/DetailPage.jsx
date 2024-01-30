@@ -26,9 +26,9 @@ const DetailPage = (props) => {
             <Icon/>
             <img style={{margin: "1rem"}} id="pokemon" src={card.sprite} alt="{card.name} sprite" />
             <h3 style={{margin: "1rem"}}>{onePokemon.nickname}</h3>
-            <h4 style={{margin: "1rem"}}>{onePokemon.name}</h4>
-            <h5 style={{margin: "1rem"}}>{onePokemon.dex}</h5>
-            <h5 style={{margin: "1rem"}}>{onePokemon.flavor}</h5>
+            <h4 style={{color: "brown", margin: "1rem"}}>{onePokemon.name}</h4>
+            <h5 style={{color: "brown", margin: "1rem"}}>Dex #{onePokemon.dex}</h5>
+            <h5 style={{margin: "1rem"}}>{onePokemon.flavor}</h5>                         
             <Btn/>
         </div>
     )
