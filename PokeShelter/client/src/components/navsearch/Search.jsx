@@ -1,5 +1,4 @@
 import React from 'react';
-// import { FaSearch } from 'react-icons/fa';
 import { useState } from "react";
 import axios from 'axios'
 
@@ -11,15 +10,14 @@ const Search = (props) => {
 
     const [pokeName, setPokeName] = useState("");
 
-    const changeHandler = (e) => {
-        console.log(e)
-        setPokeName({[e.target.name]:e.target.value})
+    const changeHandler = function (e) {
+        setPokeName({ [e.target.name]: e.target.value });
     };
 
     const submitHandler = (e) => {
         e.preventDefault()
         axios
-            .get(`https://pokeapi.co/api/v2/pokemon-species/${pokeName.pokeSearch}`)
+            .get(`https://pokeapi.co/api/v2/pokemon-species/${pokeSearch}`)
             .then((res) => {
                 console.log(res.data.name)
                 ////////////////////////////// FIND FLAVOR TEXT IN ALL GENS
@@ -32,10 +30,8 @@ const Search = (props) => {
                 })
                 let enFlavor = findFlavor[enIndex]; // set temp english flavor text variable to assign to setPokemonCard
                 ////////////////////////////// SET RESULTS
-                setPokemonCard([...pokemonCard, {
+                setPokemonCard([{
                     'name': res.data.name,
-                    'sprite': res.data.sprites.front_default,
-                    'type': res.data.types.type.name,
                     'dex': res.data.pokedex_numbers[0].entry_number,
                     'flavor': enFlavor
                 }])
@@ -43,13 +39,27 @@ const Search = (props) => {
             .catch((err) => {
                 console.log("Something went wrong:", err)
             })
-        setPokemonCard([...pokemonCard, nickname]);
-    };
+            getSprite();
+        };
+        
+        const getSprite = () => {
+            axios            
+            .get(`https://pokeapi.co/api/v2/pokemon/${pokeSearch}`)
+            .then((res) => {
+                console.log(res.data.name)
+                setPokemonCard((prevPokeCard) => [...prevPokeCard[0], {
+                    'sprite': res.data.sprites.front_default,
+                    'type': res.data.types[0].type.name,
+                }])
+            })
+            .catch((err) => {
+                console.log("Something went wrong:", err)
+            })
+    }
 
     return (
         <form onSubmit={submitHandler} id="poke-form">
             <div className="input-wrapper">
-                {/* <FaSearch id="search-icon"/> */}
                 <input type="text" name="pokeSearch" placeholder="Find your partner. . ."  onChange={changeHandler}/>
                 <input type="submit" value="Search" />
             </div>
