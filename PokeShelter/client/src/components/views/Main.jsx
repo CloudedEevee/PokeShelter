@@ -8,7 +8,7 @@ const Main = (props) => {
 
     //////////////////////////////////////////////////////////// Return
     return (
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div style={{ display: "flex", flexDirection: "column", flexDirection: "column"}}>
             <Nav />
             <Search />
             <ResultCard />
