@@ -4,7 +4,9 @@ import Nav from "../navsearch/Nav";
 import Search from "../navsearch/Search";
 
 const Main = (props) => {
-    const {pokemonCard, setPokemonCard, btnAction, setBtnAction, onSubProp, setOnSubProp} = props;
+    const {pokemonCard, setPokemonCard, btnAction, setBtnAction, pokeParty, setPokeParty} = props;
+    // useEffect should find pokeParty (list) to load party on Main page
+
 
     //////////////////////////////////////////////////////////// Return
     return (
@@ -15,12 +17,12 @@ const Main = (props) => {
                 setPokemonCard={setPokemonCard}
                 />
             <ResultCard
+                pokeParty={pokeParty}
+                setPokeParty={setPokeParty}
                 pokemonCard={pokemonCard}
                 setPokemonCard={setPokemonCard}
                 btnAction={btnAction}
                 setBtnAction={setBtnAction}
-                onSubProp={onSubProp}
-                setOnSubProp={setOnSubProp}
                 />
         </div>
 

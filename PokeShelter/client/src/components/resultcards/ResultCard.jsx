@@ -3,27 +3,44 @@ import './resultcards.css'
 import Quicklook from "./quicklook";
 import PokeballIcon from "../general/PokeballIcon";
 import Btn from "../general/Btn";
+import axios from "axios";
 
 const ResultCard = (props) => {
-    const {pokemonCard, setPokemonCard, btnAction, setBtnAction, onSubProp, setOnSubProp} = props;
+    const {pokemonCard, setPokemonCard, btnAction, setBtnAction, pokeParty, setPokeParty} = props;
     const [nickname, setNickname] = useState("");
 
     useEffect(() => {
         let action = "Add to Party";
         setBtnAction(action);
-        setOnSubProp(addToParty);
     },[])
+    //////////////////////////////////////////////////////////// Add pokemon to DB >>NOT WORKING<<
+    const addToParty = (e) => {
+        addNickname();
+        await saveToDB(pokemonCard);
+    }
+    
+    const addNickname = () => {
+        return new Promise((res, rej) => {
+            setPokemonCard((prevPokeCard) =>({...prevPokeCard, 'nickname': nickname}));\
+        })
+    }
 
-    const addToParty = () => {
-        setPokemonCard((prevPokeCard) =>[{...prevPokeCard[0], 'nickname': nickname}]);
-
+    const saveToDB = (data) => {
+        console.log(data);
+        axios 
+            .post(`http://localhost:8000/api/pokemon`, data)
+            .then(res => {
+                console.log(res.data);
+                setPokeParty( (prevPokeParty) => [...prevPokeParty, res.data]);
+            })
+            .catch(err => console.log(err))
     }
 
     //////////////////////////////////////////////////////////// Return
     return (
         <>
-            {/* {
-                pokemonCard > 0 ?  */}
+            {
+                pokemonCard.dex ? 
                 <div className="resultCard">
                     <div className="resTop">
                         <PokeballIcon />
@@ -35,12 +52,12 @@ const ResultCard = (props) => {
                     </div>
                     <Btn 
                         btnAction={btnAction}
-                        onSubProp={onSubProp} />
+                        onSubProp={addToParty} />
                     
                 </div>
-                {/* :
+                :
                 null
-            } */}
+            }
         </>
     )
 
