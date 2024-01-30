@@ -47,7 +47,7 @@ module.exports = {
         Pokemon.deleteOne({_id: req.params.id})
             .then(() => {
                 res.status(204).send()
-                console.log("Success! You deleted a pokemon")
+                console.log(`Success! You've released ${req.params.nickname}.`)
             })
             .catch((err) => {
                 res.status(400).json(err)
