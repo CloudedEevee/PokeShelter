@@ -5,14 +5,9 @@ import axios from 'axios'
 const Search = (props) => {
 
     const {pokemonCard, setPokemonCard} = props
-    let log = console.log.bind(console)
-    log( "SEARCH PROPS:", pokemonCard, setPokemonCard);
-
-    const [pokeName, setPokeName] = useState("");
-
-    const changeHandler = function (e) {
-        setPokeName({ [e.target.name]: e.target.value });
-    };
+        let log = console.log.bind(console);
+        log( "SEARCH PROPS:", pokemonCard, setPokemonCard);
+    const [pokeSearch, setPokeSearch] = useState("");
 
     const submitHandler = (e) => {
         e.preventDefault()
@@ -47,16 +42,17 @@ const Search = (props) => {
             .get(`https://pokeapi.co/api/v2/pokemon/${pokeSearch}`)
             .then((res) => {
                 console.log(res.data.name)
-                setPokemonCard((prevPokeCard) => [...prevPokeCard[0], {
+                setPokemonCard((prevPokeCard) => [{...prevPokeCard[0],
                     'sprite': res.data.sprites.front_default,
-                    'type': res.data.types[0].type.name,
-                }])
+                    'type': res.data.types[0].type.name,}
+                ])
             })
             .catch((err) => {
                 console.log("Something went wrong:", err)
             })
     }
 
+    
     return (
         <form onSubmit={submitHandler} id="poke-form">
             <div className="input-wrapper">
