@@ -1,5 +1,4 @@
 import React from 'react';
-// import { FaSearch } from 'react-icons/fa';
 import { useState } from "react";
 import axios from 'axios'
 
@@ -57,8 +56,7 @@ const Search = (props) => {
     return (
         <form onSubmit={submitHandler} id="poke-form">
             <div className="input-wrapper">
-                {/* <FaSearch id="search-icon"/> */}
-                <input type="text" name="pokeSearch" placeholder="Find your partner. . ." value={pokeSearch} onChange={(e) => setPokeSearch(e.target.value)}/>
+                <input type="text" name="pokeSearch" placeholder="Find your partner. . ."  onChange={changeHandler}/>
                 <input type="submit" value="Search" />
             </div>
         </form>
