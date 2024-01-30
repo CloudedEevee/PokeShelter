@@ -1,21 +1,47 @@
-import React from "react";
-import Icon from "../general/Icon";
+import React, { useEffect, useState } from "react"; 
+import './resultcards.css'
 import Quicklook from "./quicklook";
 import PokeballIcon from "../general/PokeballIcon";
+import Btn from "../general/Btn";
 
 const ResultCard = (props) => {
+    const {pokemonCard, setPokemonCard, btnAction, setBtnAction, onSubProp, setOnSubProp} = props;
+    const [nickname, setNickname] = useState("");
 
+    useEffect(() => {
+        let action = "Add to Party";
+        setBtnAction(action);
+        setOnSubProp(addToParty);
+    },[])
+
+    const addToParty = () => {
+        setPokemonCard((prevPokeCard) =>[{...prevPokeCard[0], 'nickname': nickname}]);
+
+    }
 
     //////////////////////////////////////////////////////////// Return
     return (
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", margin: "1rem" }}>
-            <div style={{ display: "flex", flexDirection: "row", margin: ".5rem" }}>
-                <PokeballIcon />
-                <Quicklook />
-            </div>
-            <button style={{ padding: ".1rem 2rem", textAlign: "center", backgroundColor:"brown", boxShadow: "4px 4px black" }}>Add to Party</button>
-            
-        </div>
+        <>
+            {/* {
+                pokemonCard > 0 ?  */}
+                <div className="resultCard">
+                    <div className="resTop">
+                        <PokeballIcon />
+                        <Quicklook 
+                            pokemonCard={pokemonCard}
+                            nickname={nickname}
+                            setNickname={setNickname}
+                            />
+                    </div>
+                    <Btn 
+                        btnAction={btnAction}
+                        onSubProp={onSubProp} />
+                    
+                </div>
+                {/* :
+                null
+            } */}
+        </>
     )
 
 }

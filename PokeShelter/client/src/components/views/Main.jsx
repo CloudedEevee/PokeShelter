@@ -4,14 +4,24 @@ import Nav from "../navsearch/Nav";
 import Search from "../navsearch/Search";
 
 const Main = (props) => {
-
+    const {pokemonCard, setPokemonCard, btnAction, setBtnAction, onSubProp, setOnSubProp} = props;
 
     //////////////////////////////////////////////////////////// Return
     return (
         <div style={{ display: "flex", flexDirection: "column", flexDirection: "column"}}>
             <Nav />
-            <Search />
-            <ResultCard />
+            <Search 
+                pokemonCard={pokemonCard}
+                setPokemonCard={setPokemonCard}
+                />
+            <ResultCard
+                pokemonCard={pokemonCard}
+                setPokemonCard={setPokemonCard}
+                btnAction={btnAction}
+                setBtnAction={setBtnAction}
+                onSubProp={onSubProp}
+                setOnSubProp={setOnSubProp}
+                />
         </div>
 
     )
@@ -21,5 +31,3 @@ const Main = (props) => {
 
 export default Main;
 
-
-// remove flexDirection
