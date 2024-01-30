@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react"; 
 import TextField from "@mui/material/TextField";
-import Box from '@mui/material/Box';
 
 const InputField = (props) => {
+    const {nickname, setNickname} = props;
+    
+
+
 
 
     //////////////////////////////////////////////////////////// Return
@@ -13,8 +16,8 @@ const InputField = (props) => {
                 id="outlined-controlled-size-small"
                 label="Choose a Nickname"
                 size="small"
-                value={"Nickname"}
-                onChange={(e) => {}}
+                value={nickname}
+                onChange={(e) => {setNickname(e.target.value)}}
             />
 
             </form>
