@@ -25,11 +25,11 @@ const Search = (props) => {
                 })
                 let enFlavor = findFlavor[enIndex]; // set temp english flavor text variable to assign to setPokemonCard
                 ////////////////////////////// SET RESULTS
-                setPokemonCard([{
+                setPokemonCard({
                     'name': res.data.name,
                     'dex': res.data.pokedex_numbers[0].entry_number,
                     'flavor': enFlavor
-                }])
+                })
             })
             .catch((err) => {
                 console.log("Something went wrong:", err)
@@ -42,10 +42,10 @@ const Search = (props) => {
             .get(`https://pokeapi.co/api/v2/pokemon/${pokeSearch}`)
             .then((res) => {
                 console.log(res.data.name)
-                setPokemonCard((prevPokeCard) => [{...prevPokeCard[0],
+                setPokemonCard((prevPokeCard) => ({...prevPokeCard,
                     'sprite': res.data.sprites.front_default,
-                    'type': res.data.types[0].type.name,}
-                ])
+                    'type': res.data.types[0].type.name,})
+                )
             })
             .catch((err) => {
                 console.log("Something went wrong:", err)
@@ -55,7 +55,7 @@ const Search = (props) => {
     return (
         <form onSubmit={submitHandler} id="poke-form">
             <div className="input-wrapper">
-                <input type="text" name="pokeSearch" placeholder="Find your partner. . ."  onChange={submitHandler}/>
+                <input type="text" name="pokeSearch" placeholder="Find your partner. . ."  onChange={(e) => setPokeSearch(e.target.value)}/>
                 <input type="submit" value="Search" />
             </div>
         </form>

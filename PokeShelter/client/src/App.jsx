@@ -6,9 +6,9 @@ import DetailPage from './components/views/DetailPage';
 
 function App() {
 
-  const [pokemonCard, setPokemonCard] = useState([])
-  const [btnAction, setBtnAction] = useState("")
-  const [onSubProp, setOnSubProp] = useState("")
+  const [pokeParty, setPokeParty] = useState([]);
+  const [pokemonCard, setPokemonCard] = useState({});
+  const [btnAction, setBtnAction] = useState("");
 
   return (
     <>
@@ -23,8 +23,8 @@ function App() {
                 setPokemonCard={setPokemonCard}
                 btnAction={btnAction}
                 setBtnAction={setBtnAction}
-                onSubProp={onSubProp}
-                setOnSubProp={setOnSubProp}
+                pokeParty={pokeParty}
+                setPokeParty={setPokeParty}
               />} 
               path="/" 
               default />
