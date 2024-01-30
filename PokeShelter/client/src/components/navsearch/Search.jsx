@@ -51,12 +51,11 @@ const Search = (props) => {
                 console.log("Something went wrong:", err)
             })
     }
-
     
     return (
         <form onSubmit={submitHandler} id="poke-form">
             <div className="input-wrapper">
-                <input type="text" name="pokeSearch" placeholder="Find your partner. . ."  onChange={changeHandler}/>
+                <input type="text" name="pokeSearch" placeholder="Find your partner. . ."  onChange={submitHandler}/>
                 <input type="submit" value="Search" />
             </div>
         </form>
