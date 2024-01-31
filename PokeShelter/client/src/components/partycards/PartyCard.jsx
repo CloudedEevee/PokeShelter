@@ -11,18 +11,21 @@ const PartyCard = (props) => {
     } = props;
 
     useEffect(() => {
-        let action = "Remove From Party";
+        let action = "Release";
         setBtnAction(action);
     }, []);
+
+    const releasePoke = () => {
+
+    }
 
     return (
         <>
             { pokeParty.map(
                 <div className="partyCard">
                     <div className="resTop">
-                        <img src={onePokemon.sprite} alt="{onePokemon.name} sprite"/>
-                        <h4 style={{color: "brown"}}>{onePokemon.nickname}</h4>
-                    </div>
+
+                </div>
                     <Btn btnAction={btnAction} onSubProp={releasePoke} />
                 </div>
             )}

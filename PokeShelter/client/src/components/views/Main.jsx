@@ -1,12 +1,21 @@
-import React from "react";
-import ResultCard from "../resultcards/ResultCard";
+import React, { useEffect } from "react";
+import ResultCard from "../resultcards/resultcard";
 import Nav from "../navsearch/Nav";
 import Search from "../navsearch/Search";
+import axios from "axios";
 
 const Main = (props) => {
     const {pokemonCard, setPokemonCard, btnAction, setBtnAction, pokeParty, setPokeParty} = props;
     // useEffect should find pokeParty (list) to load party on Main page
 
+    useEffect(() => {
+        axios
+            .get('http://localhost:8000/api/pokemon')
+            .then(res => {
+                console.log(res.data);
+                setPokeParty(res.data);
+            })
+    }, [])
 
     //////////////////////////////////////////////////////////// Return
     return (
