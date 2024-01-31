@@ -4,33 +4,28 @@ import axios from "axios";
 
 const PartyCard = (props) => {
     const {
-        pokemonCard,
-        setPokemonCard,
         btnAction,
         setBtnAction,
         pokeParty,
         setPokeParty,
     } = props;
-    const [nickname, setNickname] = useState("");
 
     useEffect(() => {
-        let action = "Add to Party";
+        let action = "Remove From Party";
         setBtnAction(action);
     }, []);
 
     return (
         <>
-            {pokemonCard.dex ? (
+            { pokeParty.map(
                 <div className="partyCard">
                     <div className="resTop">
-                        pokemonCard={pokemonCard}
-                        nickname={nickname}
-                        setNickname={setNickname}
-                        />
+                        <img src={onePokemon.sprite} alt="{onePokemon.name} sprite"/>
+                        <h4 style={{color: "brown"}}>{onePokemon.nickname}</h4>
                     </div>
-                    <Btn btnAction={btnAction} onSubProp={removeFromParty} />
-            </div>
-            ) : null}
+                    <Btn btnAction={btnAction} onSubProp={releasePoke} />
+                </div>
+            )}
         </>
         );
     };
