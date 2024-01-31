@@ -14,7 +14,7 @@ const PokemonSchema = new mongoose.Schema({
         type: Number
     },
     flavor:{
-        type: String
+        type: Object
     },
     nickname:{
         type: String,

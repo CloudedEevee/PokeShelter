@@ -21,20 +21,19 @@ const ResultCard = (props) => {
     setBtnAction(action);
   }, []);
 
-  const addToParty = async (e) => {
-    await addNickname();
-    await saveToDB({ nickname }); // Only send the necessary data to the server
+  const addToParty = (e) => {
+    console.log(saveToDB({...pokemonCard, nickname })); // Only send the necessary data to the server
   };
 
-  const addNickname = () => {
-    return new Promise((res) => {
-      setPokemonCard((prevPokeCard) => ({
-        ...prevPokeCard,
-        nickname: nickname,
-      }));
-      res();
-    });
-  };
+  // const addNickname = () => {
+  //   return new Promise((res) => {
+  //     setPokemonCard((prevPokeCard) => ({
+  //       ...prevPokeCard,
+  //       nickname: nickname,
+  //     }));
+  //     res();
+  //   });
+  // };
 
   const saveToDB = (data) => {
     console.log("Data being sent to the server:", data);
@@ -44,6 +43,7 @@ const ResultCard = (props) => {
       .then((res) => {
         console.log("Server response:", res.data);
         setPokeParty((prevPokeParty) => [...prevPokeParty, res.data]);
+        return res.data;
       })
       .catch((err) => console.error("Error in POST request:", err));
   };
