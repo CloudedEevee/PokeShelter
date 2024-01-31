@@ -51,7 +51,6 @@ const Search = (props) => {
                 console.log("Something went wrong:", err)
             })
     }
-
     
     return (
         <form onSubmit={submitHandler} id="poke-form">
