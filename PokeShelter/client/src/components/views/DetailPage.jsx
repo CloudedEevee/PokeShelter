@@ -7,7 +7,6 @@ import axios from 'axios';
 const DetailPage = (props) => {
 
     const { id } = useParams()
-
     const[onePokemon, setOnePokemon] = useState({})
 
     useEffect(() => {
@@ -23,7 +22,7 @@ const DetailPage = (props) => {
 
     return (
         <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-            <Icon/>
+            <Nav/>
             <img style={{margin: "1rem"}} id="pokemon" src={card.sprite} alt="{card.name} sprite" />
             <h3 style={{margin: "1rem"}}>{onePokemon.nickname}</h3>
             <h4 style={{color: "brown", margin: "1rem"}}>{onePokemon.name}</h4>
