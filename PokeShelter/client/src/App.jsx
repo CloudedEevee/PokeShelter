@@ -28,8 +28,9 @@ function App() {
               />} 
               path="/" 
               default />
+            <Route element={<Main/>} path="/pokemon/update/:id"/>
+            <Route element={<Main/>} path="/pokemon/delete/:id"/>
             <Route element={<DetailPage />} path="/pokemon/details/:id" />
-
           </Routes>
         </BrowserRouter>
       </div>

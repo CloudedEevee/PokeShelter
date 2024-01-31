@@ -25,7 +25,7 @@ const PartyCard = (props) => {
                 <div className="partyCard">
                     <div className="resTop">
 
-                    </div>
+                </div>
                     <Btn btnAction={btnAction} onSubProp={releasePoke} />
                 </div>
             )}
