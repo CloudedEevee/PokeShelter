@@ -22,10 +22,10 @@ const PartyCard = (props) => {
     return (
         <>
             { 
-                pokeParty.map((onePokemon) => (
-                    <div className="partyCard">
-                        <h3>{onePokemon.name.charAt(0).toUpperCase()}</h3>
-                        <h4>{onePokemon.nickname.charAt(0).toUpperCase()}</h4>
+                pokeParty.map((onePokemon, i) => (
+                    <div className="partyCard" key="i">
+                        <h3>{onePokemon.name.charAt(0).toUpperCase() + onePokemon.name.slice(1)}</h3>
+                        <h4>{onePokemon.nickname}</h4>
                         <button className='red-btn' onClick={() => releasePoke(onePokemon._id)}>Release</button>
                     </div>
                 ))
