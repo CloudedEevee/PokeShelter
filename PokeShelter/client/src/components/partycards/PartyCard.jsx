@@ -51,6 +51,7 @@ const PartyCard = (props) => {
         <div className="partyCard" key={i}>
           {onePokemon && onePokemon.name && (
             <>
+              <img src={onePokemon.sprite} alt={onePokemon.name} />  
               <h3>{onePokemon.name.charAt(0).toUpperCase() + onePokemon.name.slice(1)}</h3>
               <h4>{onePokemon.nickname}</h4>
               <button className="red-btn" onClick={() => releasePoke(onePokemon._id)}>
