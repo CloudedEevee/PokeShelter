@@ -35,8 +35,6 @@ const Main = (props) => {
                 setBtnAction={setBtnAction}
                 />
             <PartyCard
-                btnAction={btnAction}
-                setBtnAction={setBtnAction}
                 pokeParty={pokeParty}
                 setPokeParty={setPokeParty}
             />
