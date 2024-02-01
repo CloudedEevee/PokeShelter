@@ -3,6 +3,7 @@ import ResultCard from "../resultcards/resultcard";
 import Nav from "../navsearch/Nav";
 import Search from "../navsearch/Search";
 import axios from "axios";
+import PartyCard from "../partycards/PartyCard";
 
 const Main = (props) => {
     const {pokemonCard, setPokemonCard, btnAction, setBtnAction, pokeParty, setPokeParty} = props;
@@ -33,6 +34,12 @@ const Main = (props) => {
                 btnAction={btnAction}
                 setBtnAction={setBtnAction}
                 />
+            <PartyCard
+                btnAction={btnAction}
+                setBtnAction={setBtnAction}
+                pokeParty={pokeParty}
+                setPokeParty={setPokeParty}
+            />
         </div>
 
     )
