@@ -13,6 +13,7 @@ const ResultCard = (props) => {
     setBtnAction,
     pokeParty,
     setPokeParty,
+    betterName
   } = props;
   const [nickname, setNickname] = useState("");
 
@@ -24,16 +25,6 @@ const ResultCard = (props) => {
   const addToParty = (e) => {
     console.log(saveToDB({...pokemonCard, nickname })); // Only send the necessary data to the server
   };
-
-  // const addNickname = () => {
-  //   return new Promise((res) => {
-  //     setPokemonCard((prevPokeCard) => ({
-  //       ...prevPokeCard,
-  //       nickname: nickname,
-  //     }));
-  //     res();
-  //   });
-  // };
 
   const saveToDB = (data) => {
     console.log("Data being sent to the server:", data);

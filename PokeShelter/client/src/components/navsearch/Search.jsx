@@ -12,7 +12,7 @@ const Search = (props) => {
     const submitHandler = (e) => {
         e.preventDefault()
         axios
-            .get(`https://pokeapi.co/api/v2/pokemon-species/${pokeSearch}`)
+            .get(`https://pokeapi.co/api/v2/pokemon-species/${pokeSearch.toLowerCase()}`)
             .then((res) => {
                 console.log(res.data.name)
                 ////////////////////////////// FIND FLAVOR TEXT IN ALL GENS

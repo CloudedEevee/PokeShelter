@@ -11,20 +11,20 @@ const Quicklook = (props) => {
             log( "SEARCH RESULTS:", pokemonCard);
         }, [])
 
-    const betterName = (pokeName) => {
-        let tempName = "";
-        const nameArr = pokeName.split('');
-        nameArr.map((char, i) => {
-            if (i == 0) {
-                tempName += char.toUpperCase();
-            }
-            else {
-                tempName += char;
-            }
-        })
-        return tempName;
-        
-    } 
+        const betterName = (pokeName) => {
+            let tempName = "";
+            const nameArr = pokeName.split('');
+            nameArr.map((char, i) => {
+                if (i == 0) {
+                    tempName += char.toUpperCase();
+                }
+                else {
+                    tempName += char;
+                }
+            })
+            return tempName;
+            
+        } 
 
     //////////////////////////////////////////////////////////// Return
     return (
