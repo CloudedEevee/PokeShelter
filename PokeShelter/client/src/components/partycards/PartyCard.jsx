@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const PartyCard = (props) => {
   const { pokeParty, setPokeParty } = props;
@@ -60,7 +61,7 @@ const PartyCard = (props) => {
             <>
               <img src={onePokemon.sprite} alt={onePokemon.name} />  
               <h3>{onePokemon.name.charAt(0).toUpperCase() + onePokemon.name.slice(1)}</h3>
-              <h4>{onePokemon.nickname}</h4>
+              <Link to={`/pokemon/details/${onePokemon._id}`}><h4>{onePokemon.nickname}</h4></Link>
               <button className="red-btn" onClick={() => releasePoke(onePokemon._id)}>
                 Release
               </button>
