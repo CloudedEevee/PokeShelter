@@ -15,6 +15,7 @@ const ResultCard = (props) => {
     setPokeParty,
   } = props;
   const [nickname, setNickname] = useState("");
+  const [nicknameError, setNicknameError] = useState("");
 
   useEffect(() => {
     let action = "Add to Party";
@@ -22,18 +23,22 @@ const ResultCard = (props) => {
   }, []);
 
   const addToParty = (e) => {
-    console.log(saveToDB({...pokemonCard, nickname })); // Only send the necessary data to the server
+    const validationError = validateNickname(nickname);
+    if (validationError) {
+      setNicknameError(validationError);
+      return;
+    }
+
+    setNicknameError(""); 
+    console.log(saveToDB({ ...pokemonCard, nickname })); // Only send the necessary data to the server
   };
 
-  // const addNickname = () => {
-  //   return new Promise((res) => {
-  //     setPokemonCard((prevPokeCard) => ({
-  //       ...prevPokeCard,
-  //       nickname: nickname,
-  //     }));
-  //     res();
-  //   });
-  // };
+  const validateNickname = (value) => {
+    if (value.length < 3) {
+      return "Nickname must have a minimum of 3 characters";
+    }
+    return ""; // Empty string indicates no error
+  };
 
   const saveToDB = (data) => {
     console.log("Data being sent to the server:", data);
@@ -60,6 +65,7 @@ const ResultCard = (props) => {
               setNickname={setNickname}
             />
           </div>
+          {nicknameError && <p className="error-message">{nicknameError}</p>}
           <Btn btnAction={btnAction} onSubProp={addToParty} />
         </div>
       ) : null}
@@ -68,4 +74,5 @@ const ResultCard = (props) => {
 };
 
 export default ResultCard;
+
 
