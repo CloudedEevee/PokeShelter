@@ -6,6 +6,7 @@ const PartyCard = (props) => {
 
   const [editMode, setEditMode] = useState({});
   const [newNickname, setNewNickname] = useState({});
+  const [nicknameError, setNicknameError] = useState({});
 
   const releasePoke = (idFromMap) => {
     axios
@@ -25,9 +26,15 @@ const PartyCard = (props) => {
   const handleEdit = (id, currentNickname) => {
     setEditMode((prev) => ({ ...prev, [id]: true }));
     setNewNickname((prev) => ({ ...prev, [id]: currentNickname }));
+    setNicknameError((prev) => ({ ...prev, [id]: "" })); 
   };
 
   const handleEditSubmit = (id) => {
+    if (newNickname[id].length < 3) {
+      setNicknameError((prev) => ({ ...prev, [id]: "Nickname must have a minimum of 3 characters" }));
+      return; 
+    }
+
     setEditMode((prev) => ({ ...prev, [id]: false }));
 
     // Make the API call to update the nickname
@@ -35,7 +42,7 @@ const PartyCard = (props) => {
       .put(`http://localhost:8000/api/pokemon/${id}`, { nickname: newNickname[id] })
       .then((res) => {
         console.log("Updated Pokemon:", res);
-        // Assuming the API returns the updated Pokemon, update the state
+        
         setPokeParty((prev) =>
           prev.map((p) => (p._id === id ? { ...p, nickname: newNickname[id] } : p))
         );
@@ -66,12 +73,15 @@ const PartyCard = (props) => {
                   <input
                     type="text"
                     value={newNickname[onePokemon._id] || ""}
-                    onChange={(e) =>
-                      setNewNickname((prev) => ({ ...prev, [onePokemon._id]: e.target.value }))
-                    }
+                    onChange={(e) => {
+                      setNewNickname((prev) => ({ ...prev, [onePokemon._id]: e.target.value }));
+                      setNicknameError((prev) => ({ ...prev, [onePokemon._id]: "" })); // Clear nickname error on change
+                    }}
                   />
                   <button onClick={() => handleEditSubmit(onePokemon._id)}>Save</button>
-                  
+                  {nicknameError[onePokemon._id] && (
+                    <p className="error-message">{nicknameError[onePokemon._id]}</p>
+                  )}
                 </div>
               )}
             </>
