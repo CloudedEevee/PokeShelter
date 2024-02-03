@@ -19,11 +19,9 @@ const InputField = (props) => {
                 value={nickname}
                 onChange={(e) => {setNickname(e.target.value)}}
             />
-
             </form>
         </div>
     )
 }
-
 
 export default InputField;

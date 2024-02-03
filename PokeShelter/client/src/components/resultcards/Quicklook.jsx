@@ -25,7 +25,6 @@ const Quicklook = (props) => {
         return tempName;
         
     } 
-
     //////////////////////////////////////////////////////////// Return
     return (
         <div style={{ paddingLeft: "1rem" }}>
@@ -37,6 +36,5 @@ const Quicklook = (props) => {
         </div>
     )
 }
-
 
 export default Quicklook;
