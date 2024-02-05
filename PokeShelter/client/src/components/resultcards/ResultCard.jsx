@@ -74,5 +74,3 @@ const ResultCard = (props) => {
 };
 
 export default ResultCard;
-
-

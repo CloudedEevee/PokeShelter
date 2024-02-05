@@ -14,7 +14,6 @@ const Search = (props) => {
       return;
     }
 
-    
     setErrorMessage('');
 
     axios

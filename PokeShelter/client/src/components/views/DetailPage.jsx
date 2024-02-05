@@ -35,5 +35,3 @@ const DetailPage = (props) => {
 }
 
 export default DetailPage;
-
-// this works now

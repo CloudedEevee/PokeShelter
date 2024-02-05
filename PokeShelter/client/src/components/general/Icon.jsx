@@ -10,9 +10,7 @@ const Icon = (props) => {
                 <hr style={{ border: "solid 7px white", borderRadius: "8px", width: ".05rem", marginTop: "-30%"}}/>
             </div>
         </div>
-
     )
 }
-
 
 export default Icon;

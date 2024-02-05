@@ -20,7 +20,7 @@ const Main = (props) => {
 
     //////////////////////////////////////////////////////////// Return
     return (
-        <div style={{ display: "flex", flexDirection: "column", flexDirection: "column"}}>
+        <div style={{ display: "flex", flexDirection: "column"}}>
             <Nav />
             <Search 
                 pokemonCard={pokemonCard}
@@ -44,6 +44,4 @@ const Main = (props) => {
 
 }
 
-
 export default Main;
-

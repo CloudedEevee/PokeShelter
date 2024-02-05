@@ -10,9 +10,7 @@ const PokeballIcon = (props) => {
                     <hr style={{ backgroundColor: "white", border: "solid 7px white", borderRadius: "8px", width: ".05rem", marginTop: "-33%" }}/>
             </div>
         </div>
-
     )
 }
-
 
 export default PokeballIcon;
